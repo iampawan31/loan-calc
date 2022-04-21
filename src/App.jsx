@@ -111,7 +111,7 @@ const App = () => {
               </div>
               <select
                 name="loanTerms"
-                className="w-full border rounded py-2 border-gray bg-white"
+                className="w-full border rounded py-2 border-gray bg-white appearance-none text-black px-2"
                 onChange={(e) => setLoanTerms(parseInt(e.target.value))}
                 value={loanTerms}
               >
@@ -130,7 +130,7 @@ const App = () => {
               </div>
               <select
                 name="repaymentTerms"
-                className="w-full border rounded py-2 border-gray bg-white"
+                className="w-full border rounded py-2 border-gray bg-white appearance-none text-black px-2"
                 onChange={(e) => setRepaymentTerms(e.target.value)}
                 value={repaymentTerms}
               >
