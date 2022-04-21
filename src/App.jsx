@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const interestRates = [2.9, 3.1, 3.3, 3.6]
 
 const App = () => {
   const [loanAmount, setLoanAmount] = useState(20000)
+  const rangeRef = useRef()
   const [loanTerms, setLoanTerms] = useState(4)
   const [repaymentTerms, setRepaymentTerms] = useState('weekly')
   const [totalRepayments, setTotalRepayments] = useState(0)
@@ -49,6 +50,14 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    const currentBackgroundSize =
+      ((rangeRef.current.value - rangeRef.current.min) * 100) /
+      (rangeRef.current.max - rangeRef.current.min)
+    console.log(currentBackgroundSize, 57)
+    rangeRef.current.style.backgroundSize = currentBackgroundSize + '% 100%'
+  }, [loanAmount])
+
   return (
     <div className="App text-black bg-white h-full relative">
       <div className="flex flex-col lg:flex-row h-screen">
@@ -83,6 +92,7 @@ const App = () => {
                 </div>
               </div>
               <input
+                ref={rangeRef}
                 name="loanAmount"
                 className="w-full"
                 type="range"
@@ -101,7 +111,7 @@ const App = () => {
               </div>
               <select
                 name="loanTerms"
-                className="w-full border rounded py-2 border-gray"
+                className="w-full border rounded py-2 border-gray bg-white"
                 onChange={(e) => setLoanTerms(parseInt(e.target.value))}
                 value={loanTerms}
               >
@@ -120,7 +130,7 @@ const App = () => {
               </div>
               <select
                 name="repaymentTerms"
-                className="w-full border rounded py-2 border-gray"
+                className="w-full border rounded py-2 border-gray bg-white"
                 onChange={(e) => setRepaymentTerms(e.target.value)}
                 value={repaymentTerms}
               >
