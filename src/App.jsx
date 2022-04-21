@@ -43,6 +43,7 @@ const App = () => {
     }).format(amount)
   }
 
+  // Calculate the initial EMI and Repayments Amount
   useEffect(() => {
     calculateEMI()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,7 +67,7 @@ const App = () => {
       <div className="lg:bg-white lg:shadow-lg top-80 md:top-none md:inset-y-1/2 bottom-0 lg:rounded-lg w-full h-fit p-4 lg:p-8 mx-0 absolute lg:max-w-xl lg:inset-y-0 lg:inset-x-1 lg:m-10">
         <div className="bg-white p-4 shadow-lg rounded-lg lg:bg-transparent lg:p-0 lg:shadow-none lg:rounded-none">
           {/* Card heading */}
-          <div className="text-2xl font-semibold mb-8 lg:mb-16">
+          <div className="text-2xl lg:text-3xl font-bold mb-8 lg:mb-16">
             Your interest calculator
           </div>
           {/* Card Body */}
@@ -74,10 +75,10 @@ const App = () => {
             {/* Loan Amount */}
             <div className="mb-6 lg:mb-10">
               <div className="flex justify-between mb-2">
-                <label className="font-semibold" htmlFor="loanAmount">
+                <label className="font-bold" htmlFor="loanAmount">
                   Loan Amount
                 </label>
-                <div className="text-primary font-semibold">
+                <div className="text-primary font-bold">
                   {formattedAmount(loanAmount)}
                 </div>
               </div>
@@ -94,7 +95,7 @@ const App = () => {
             {/* Loan Terms */}
             <div className="mb-6 lg:mb-10">
               <div className="flex justify-between mb-2">
-                <label className="font-semibold" htmlFor="loanTerms">
+                <label className="font-bold" htmlFor="loanTerms">
                   Loan Terms
                 </label>
               </div>
@@ -113,7 +114,7 @@ const App = () => {
             {/* Repayment Terms */}
             <div className="mb-6 lg:mb-10">
               <div className="flex justify-between mb-2">
-                <label className="font-semibold" htmlFor="repaymentTerms">
+                <label className="font-bold" htmlFor="repaymentTerms">
                   Repayment Terms
                 </label>
               </div>
@@ -129,7 +130,7 @@ const App = () => {
               </select>
             </div>
             {/* Loan Summary */}
-            <div className="flex w-full font-semibold">
+            <div className="flex w-full font-bold">
               <div className="w-1/2 flex flex-col">
                 <div className="capitalize">{`${repaymentTerms} repayments`}</div>
                 <div className="text-xl">{emi}</div>
